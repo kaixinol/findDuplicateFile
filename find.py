@@ -1,10 +1,25 @@
 import hashlib
 import logging
 import os
-
-logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s', level=logging.INFO)
-
-rootFolder = '/Users/username/Pictures/'
+import sys
+import logging
+logger = logging.getLogger("FINDPY")
+logger.setLevel(logging.INFO)
+logger1 = logging.StreamHandler()
+logger1.setLevel(logging.INFO)
+fomatter = logging.Formatter('%(asctime)s-%(module)s:%(message)s')
+logger1.setFormatter(fomatter)
+logger.addHandler(logger1)
+if len(sys.argv) < 2:
+    print('find.py <folder> [-log <log_file>]')
+    sys.exit(-1)
+if len(sys.argv) == 4:
+    logger2 = logging.FileHandler(sys.argv[3])
+    logger2.setLevel(logging.INFO)
+    logger2.setFormatter(fomatter)
+    logger.addHandler(logger2)
+rootFolder = sys.argv[1]
+rootFolder+='\\'
 temp = {}
 duplicateList = {}
 
@@ -41,9 +56,9 @@ def showDuplicateFile(duplicateArray):
         if len(duplicateArray[one]) > 1:
             count = count + 1
             for two in duplicateArray[one]:
-                logging.info(two)
-            logging.info('')
-    logging.info('总共找到 %s 组文件重复。' % count)
+                logger.info(two)
+            logger.info('')
+    logger.info('总共找到 %s 组文件重复。' % count)
 
 
 getMD5List(rootFolder)

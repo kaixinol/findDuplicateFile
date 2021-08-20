@@ -12,6 +12,10 @@
 ## 使用方法
 编辑 find.py 文件，第七行 rootFolder 设置查找目录，并以 "/" 结尾
 
-```python
+```
 python3 find.py
 ```
+
+## 开源协议
+[MIT](LICENSE) 
+

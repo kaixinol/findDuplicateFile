@@ -10,10 +10,9 @@
 3. 输出具有相同 MD5 的文件路径
 
 ## 使用方法
-编辑 find.py 文件，第七行 rootFolder 设置查找目录，并以 "/" 结尾
-
+<kbd>Win+R</kbd>运行
 ```
-python3 find.py
+python3 find.py <folder> [-log <log file>]
 ```
 
 ## 开源协议

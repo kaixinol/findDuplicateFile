@@ -1,5 +1,6 @@
 # findDuplicateFile
 简单查找重复文件
+### Language [README.md](README.md) | [README_en-us.md](README_en-us.md)
 
 [![Python](https://img.shields.io/badge/Python-3.7%2B-brightgreen.svg)](https://www.python.org)
 

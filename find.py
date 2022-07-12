@@ -9,15 +9,21 @@ logger = logging.getLogger("FINDPY")
 logger.setLevel(logging.INFO)
 logger1 = logging.StreamHandler()
 logger1.setLevel(logging.INFO)
-fomatter = logging.Formatter('%(asctime)s-%(module)s:%(message)s')
+fomatter = logging.Formatter('%(asctime)s:%(message)s')
 logger1.setFormatter(fomatter)
 logger.addHandler(logger1)
 if len(sys.argv) < 2:
-    print('find.py <folder> [-log <log_file>]')
+    print('Usage:find.py <folder> [-log <log_file> [level]]')
+    print('level:{INFO=20,ERROR=40}')
     sys.exit(-1)
 if len(sys.argv) == 4:
     logger2 = logging.FileHandler(sys.argv[3])
     logger2.setLevel(logging.INFO)
+    logger2.setFormatter(fomatter)
+    logger.addHandler(logger2)
+if len(sys.argv) == 5:
+    logger2 = logging.FileHandler(sys.argv[3])
+    logger2.setLevel(int(sys.argv[4]))
     logger2.setFormatter(fomatter)
     logger.addHandler(logger2)
 rootFolder = sys.argv[1]

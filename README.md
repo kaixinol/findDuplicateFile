@@ -17,7 +17,8 @@
 ```
 pip install emoji
 pip install send2trash
-python3 find.py <folder> [-log <log file>]
+python3 find.py <folder> [-log <log_file> [level]]
+# example:python3 find.py folder -log 1.log 40
 ```
 
 ## 开源协议

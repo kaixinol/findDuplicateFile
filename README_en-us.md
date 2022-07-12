@@ -7,10 +7,12 @@ Simply find duplicate files
 1. Generate MD5 values of all files in the specified directory (including subdirectories)
 2. Check these MD5 duplicates
 3. Output the file path with the same MD5
-
+4. Duplicate files are automatically moved to the recycle bin
 ## How to use
 <kbd>Win+R</kbd>Run
 ```
+pip install emoji
+pip install send2trash
 python3 find.py <folder> [-log <log file>]
 ```
 

@@ -3,6 +3,8 @@ import logging
 import os
 import sys
 import logging
+import emoji
+import send2trash
 logger = logging.getLogger("FINDPY")
 logger.setLevel(logging.INFO)
 logger1 = logging.StreamHandler()
@@ -56,8 +58,19 @@ def showDuplicateFile(duplicateArray):
         if len(duplicateArray[one]) > 1:
             count = count + 1
             for two in duplicateArray[one]:
-                logger.info(two)
-            logger.info('')
+                keep=duplicateArray[one][0]
+                if keep!=two:
+                    try:
+                        send2trash.send2trash(two)
+                    except Exception as e:
+                        logger.error(e)
+                        logger.error(emoji.demojize('[Failed to delete]'+two))
+                    else:
+                        logger.info(emoji.demojize('[deleted]'+two))
+                    continue
+                else:
+                    logger.info(emoji.demojize(two))
+                    deld=False
     logger.info('总共找到 %s 组文件重复。' % count)
 
 

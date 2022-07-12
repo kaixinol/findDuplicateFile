@@ -10,9 +10,13 @@
 
 3. 输出具有相同 MD5 的文件路径
 
+4. 自动移到回收站
+
 ## 使用方法
 <kbd>Win+R</kbd>运行
 ```
+pip install emoji
+pip install send2trash
 python3 find.py <folder> [-log <log file>]
 ```
 

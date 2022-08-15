@@ -27,7 +27,7 @@ if len(sys.argv) == 5:
     logger2.setFormatter(fomatter)
     logger.addHandler(logger2)
 rootFolder = sys.argv[1]
-rootFolder+='\\'
+rootFolder+='\'
 temp = {}
 duplicateList = {}
 
@@ -40,7 +40,7 @@ def getMD5List(folder):
         filePath = '%s%s' % (folder, file)
 
         if os.path.isdir(filePath):
-            getMD5List('%s/' % filePath)
+            getMD5List('%s\' % filePath)
         else:
             oFile = open(filePath, 'rb')
             value = hashlib.md5()
